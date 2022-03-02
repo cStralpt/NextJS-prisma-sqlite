@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Launch Microsoft Edge in the background
+      "type": "pwa-msedge",
+      "request": "launch",
+      // Use the stable branch of Microsoft Edge
+      "runtimeExecutable": "stable",
+      // run it as headless (no window)
+      "runtimeArgs": ["--headless"],
+      // name of the debugging session
+      "name": "Next-CRUD",
+      // Open the address localhost:8080
+      // This needs to run - I use the http-server
+      // npm package
+      "url": "http://localhost:3000",
+      // Open the workspace at the root of the server
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

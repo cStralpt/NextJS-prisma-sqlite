@@ -1,0 +1,230 @@
+.Page404_heading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.Page404_heading h1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  place-items: center;
+  gap: 10px;
+  color: silver;
+}
+@keyframes AnimateLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 100%;
+  }
+}
+@keyframes AnimateLine2 {
+  0% {
+    bottom: 10px;
+    left: 0;
+    opacity: 0;
+    /* top: 0px; */
+  }
+  50% {
+    opacity: 100%;
+    left: -50px;
+    transform: rotateZ(45deg);
+    width: 100%;
+  }
+  100% {
+    opacity: 100%;
+    transform: rotateZ(45deg);
+    left: -50px;
+    width: 50%;
+    z-index: -1;
+    /* top: -2px; */
+  }
+}
+@keyframes AnimateLine3 {
+  0% {
+    opacity: 0;
+    bottom: 10px;
+    right: 0;
+    /* top: 0px; */
+  }
+  50% {
+    right: -50px;
+    opacity: 100%;
+    transform: rotateZ(45deg);
+    width: 100%;
+  }
+  100% {
+    opacity: 100%;
+    transform: rotateZ(45deg);
+    right: -50px;
+    width: 50%;
+    z-index: -1;
+    /* top: -2px; */
+  }
+}
+@keyframes AnimateLine4 {
+  0% {
+    opacity: 0;
+    bottom: 10px;
+    right: 0;
+    opacity: 0;
+    /* top: 0px; */
+  }
+  50% {
+    opacity: 100%;
+    right: -5px;
+    transform: rotateZ(45deg);
+    opacity: 100%;
+    width: 100%;
+  }
+  100% {
+    opacity: 100%;
+    transform: rotateZ(45deg);
+    right: -5px;
+    opacity: 100%;
+    width: 100%;
+    z-index: -1;
+    /* top: -2px; */
+  }
+}
+@keyframes AnimateText {
+  0% {
+    width: 100%;
+    opacity: 100%;
+  }
+  100% {
+    width: 0;
+    opacity: 100%;
+  }
+}
+@keyframes AnimateCircle {
+  0% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    top: 0;
+    right: 0;
+  }
+  50% {
+    opacity: 100%;
+    width: 150px;
+    height: 150px;
+    top: -60px;
+    right: -60px;
+  }
+  100% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    top: 0;
+    right: 0;
+  }
+}
+.Page404_heading h1 div {
+  position: relative;
+}
+.Page404_heading h1 div span:nth-child(6) {
+  position: relative;
+}
+.Page404_heading h1 div span:nth-child(6) span {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  background-color: #eeeeee;
+  height: 100%;
+  animation: AnimateText 2000ms forwards;
+  border-radius: 10px;
+}
+.Page404_heading h1 div span:nth-child(1) {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 3px;
+  background-color: tomato;
+  bottom: 2px;
+  opacity: 0;
+  animation: AnimateLine 1000ms 2s forwards;
+}
+.Page404_heading h1 div span:nth-child(2) {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 3px;
+  background-color: silver;
+  transition: all ease-in;
+  opacity: 0;
+  bottom: 2px;
+  animation: AnimateLine2 1000ms 1500ms forwards !important;
+}
+.Page404_heading h1 div span:nth-child(3) {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 3px;
+  background-color: silver;
+  transition: all ease-in;
+  opacity: 0;
+  bottom: 2px;
+  animation: AnimateLine3 1000ms 1500ms forwards !important;
+}
+.Page404_heading h1 div span:nth-child(4) {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 3px;
+  background-color: silver;
+  transition: all ease-in;
+  bottom: 2px;
+  opacity: 0;
+  opacity: 0;
+  animation: AnimateLine4 1000ms 1500ms forwards !important;
+}
+.Page404_heading h1 div span:nth-child(5) {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  display: flex;
+  width: 0;
+  height: 0;
+  background-color: rgba(192, 192, 192, 0.445);
+  border-radius: 150px;
+  border: 4px solid silver;
+  opacity: 0;
+  animation: AnimateCircle 1000ms 1500ms infinite !important;
+}
+@keyframes Animate404 {
+  0% {
+    margin-bottom: 50px;
+    transform: rotateZ(-90deg);
+  }
+  100% {
+    margin-bottom: 0;
+    transform: rotateZ(0);
+    opacity: 100%;
+  }
+}
+
+.Page404_heading h1 h1 {
+  margin: 0;
+  color: tomato;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+  transition: all ease-in;
+}
+
+.Page404_heading h1 h1 h1:nth-child(1) {
+  opacity: 0;
+  animation: Animate404 500ms forwards;
+}
+.Page404_heading h1 h1 h1:nth-child(2) {
+  opacity: 0;
+  animation: Animate404 500ms 500ms forwards;
+}
+.Page404_heading h1 h1 h1:nth-child(3) {
+  opacity: 0;
+  animation: Animate404 500ms 1000ms forwards;
+}

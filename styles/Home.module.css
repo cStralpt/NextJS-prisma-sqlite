@@ -74,15 +74,22 @@
   outline: 2px solid white;
 }
 .heading {
+  background-color: #eeeeee;
+  border: 4px solid black;
+  padding: 10px;
+  border-radius: 100px 0 100px;
   width: 100%;
   text-align: center;
   transition: all ease-in 1s;
-  text-shadow: -2px -2px #7900ff, 2px 2px #93ffd8, 4px 4px #548cff,
-    -4px -6px #cfffdc;
+  text-shadow: -2px -2px #b983ff, 2px 2px #ff95c5, 4px 4px #ffd371,
+    -4px -6px #c2ffd9;
+  color: #3b0000;
 }
 .heading:hover {
-  text-shadow: 2px 2px green, -2px -2px red, -4px -4px yellow, 4px 6px blue;
-  transition: all ease-out 0.2s;
+  text-shadow: 2px 2px #005f99, -2px -2px #ff449f, -4px -4px #fff5b7,
+    4px 6px #00ead3;
+  transition: all ease-in-out 0.2s;
+  border-radius: 0 100px 0;
 }
 .form_regsBtn_pipBtn .regsBtn {
   display: flex;
@@ -204,6 +211,8 @@
   background-color: #ffe162;
   border-radius: 100px;
   border: 4px solid black;
+  position: relative;
+  overflow: hidden;
 }
 .usersData_item_userData {
   display: flex;
@@ -243,6 +252,7 @@
   width: 30px;
   height: 30px;
   display: grid;
+  display: -ms-grid;
   place-items: center;
   cursor: pointer;
 }
@@ -263,6 +273,7 @@
   label {
   /* display: none; */
   display: grid;
+  display: -ms-grid;
   place-items: center;
   width: 100%;
   height: 100%;
@@ -283,6 +294,7 @@
   input[type="checkbox"]:checked
   + label {
   display: grid;
+  display: -ms-grid;
   place-items: center;
   width: 100%;
   height: 100%;
@@ -339,6 +351,7 @@
   border: 4px solid black;
   display: flex;
   width: fit-content;
+  width: -moz-fit-content;
   background-color: #ffe162;
   border-radius: 25px;
   border-style: dashed;

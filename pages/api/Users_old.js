@@ -1,30 +1,18 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 // prisma using API routes
 import { PrismaClient } from "@prisma/client";
-import fileManager from "fs-extra";
 const prisma = new PrismaClient();
 export default async function handle(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ pesan: "method tidak di izinkan" });
   } else if (req.method == "POST") {
     if (req.body.action === "singleDelete") {
-      const user = await prisma.users.findUnique({
+      await prisma.users.delete({
         where: {
           id: parseInt(req.body.userID),
         },
       });
-      if (user) {
-        await prisma.users.delete({
-          where: {
-            id: parseInt(req.body.userID),
-          },
-        });
-        fileManager.remove(`public\\Users\\${user.profilePicture}`, (err) => {
-          if (err) return console.error(err);
-          console.log("success!");
-        });
-      }
-      return res.status(200).json({ pesan: "userDeleted" });
+      return res.status(200).json({ pesan: "user deleted" });
     } else if (req.body.action === "insertUser") {
       await prisma.users.create({
         data: {
@@ -39,13 +27,7 @@ export default async function handle(req, res) {
       });
       return res.status(200).json({ Pesan: "okay" });
     } else if (req.body.action === "refetchUsers") {
-      const users = await prisma.users.findMany({
-        orderBy: [
-          {
-            id: "desc",
-          },
-        ],
-      });
+      const users = await prisma.users.findMany();
       return res.status(200).json({ users: users });
     } else if (req.body.action === "updateUser") {
       const updateUser = await prisma.users.update({
@@ -71,29 +53,14 @@ export default async function handle(req, res) {
       });
       return res.status(200).json({ user: user });
     } else if (req.body.action === "bulkDelete") {
-      const user = await prisma.users.findMany({
+      const deleteUsers = await prisma.users.deleteMany({
         where: {
           id: {
             in: req.body.userID,
           },
         },
       });
-      if (user) {
-        await prisma.users.deleteMany({
-          where: {
-            id: {
-              in: req.body.userID,
-            },
-          },
-        });
-        user.map((data) => {
-          fileManager.remove(`public\\Users\\${data.profilePicture}`, (err) => {
-            if (err) return console.error(err);
-            console.log("success!");
-          });
-        });
-      }
-      return res.status(200).json({ pesan: "deleteSucced" });
+      return res.status(200).json({pesan: "deleteSucced"});
     }
   }
 }

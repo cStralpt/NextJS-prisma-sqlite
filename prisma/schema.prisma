@@ -18,3 +18,9 @@ model Users{
   profilePicture String
   homeAddress String
 }
+model admin{
+  id String @id @default(cuid())
+  username String @unique
+  email String
+  password String
+}
